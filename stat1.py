@@ -192,15 +192,19 @@ class app:
 		lognormal=Button(top,text="Log-Normal",command=self.lognormal).pack(fill=X)
 	
 	def binomial(self):
+		pl.clf()
 		x=Binomial()
 		x.graph()
 	def poisson(self):
+		pl.clf()
 		x=Poisson()
 		x.graph()
 	def normal(self):
+		pl.clf()
 		x=Normal()
 		x.graph()
 	def lognormal(self):
+		pl.clf()
 		x=LogNormal()
 		x.graph()
 		
