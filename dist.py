@@ -92,7 +92,22 @@ class LogNormal():
 		return self.standardDeviation
 
 #---------------------------------------------------------------------------------------------------------------------------------------------
-
+class Rayleigh():
+	def __init__(self):
+		self.s=random.uniform(0,30.0);
+		self.x=[]
+		self.y=[]
+		for i in range(1,200):
+			self.x.append(i)
+			f=i*exp(-(i**2)/(2*(self.s**2)))/(self.s**2)
+			self.y.append(f)
+	def graph(self):
+		pl.plot(self.x,self.y)
+		pl.show()
+	def rand(self):
+		return self.y
+	def getSD(self):
+		return self.s
 
 
 

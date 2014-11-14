@@ -190,6 +190,7 @@ class app:
 		poisson=Button(top,text="Poisson",command=self.poisson).pack(fill=X)
 		normal=Button(top,text="Normal",command=self.normal).pack(fill=X)
 		lognormal=Button(top,text="Log-Normal",command=self.lognormal).pack(fill=X)
+		rayleigh=Button(top,text="Rayleigh",command=self.rayleigh).pack(fill=X)
 	
 	def binomial(self):
 		pl.clf()
@@ -206,6 +207,9 @@ class app:
 	def lognormal(self):
 		pl.clf()
 		x=LogNormal()
+		x.graph()
+	def rayleigh(self):
+		x=Rayleigh()
 		x.graph()
 		
 root = Tk()
