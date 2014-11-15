@@ -1,6 +1,7 @@
 from math import *
 import random
 import matplotlib.pyplot as pl
+from scipy.special import iv
 #-------------------------------------------------------------------------------------------#
 class Binomial(): 
 	
@@ -108,9 +109,36 @@ class Rayleigh():
 		return self.y
 	def getSD(self):
 		return self.s
-
-
-
-
-
+class Gamma():
+	def __init__(self):
+		self.k=random.randrange(1,10)
+		self.t= random.uniform(0.5,5)
+		self.x=[]
+		self.y=[]
+		for i in range(0,21):
+			self.x.append(i)
+			f=((i**(self.k-1))*exp(-i/self.t))/((self.k**self.t)*gamma(self.k))
+			self.y.append(f)
+	def graph(self):
+		pl.plot(self.x,self.y)
+		pl.show()
+	def rand(self):
+		return self.y
+	def getK(self):
+		return self.k
+	def getTheta(self):
+		return self.t
+class Rice():
+	def __init__(self):
+		self.v=random.uniform(0.2,5)
+		self.s=1
+		self.x=[]
+		self.y=[]
+		for i in range(0,50):
+			self.x.append(i)
+			f=i*exp(-((i**2)+(self.v**2))/(2*self.s**2))*iv(0,(i*self.v)/(self.s**2))/(self.s**2)
+			self.y.append(f)
+	def graph(self):
+		pl.plot(self.x,self.y)
+		pl.show()
 

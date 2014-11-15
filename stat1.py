@@ -13,7 +13,7 @@ class app:
 		self.master=master
 		self.start()
 	def browse(self):
-		self.filename = askopenfilename(title="open a file ...")
+
 		self.filelocation.insert(0,self.filename)
 	def start_processing(self):
 		def mean(x):
@@ -191,6 +191,8 @@ class app:
 		normal=Button(top,text="Normal",command=self.normal).pack(fill=X)
 		lognormal=Button(top,text="Log-Normal",command=self.lognormal).pack(fill=X)
 		rayleigh=Button(top,text="Rayleigh",command=self.rayleigh).pack(fill=X)
+		gamma=Button(top,text="Gamma",command=self.gamma).pack(fill=X)
+		rice=Button(top,text="Rice",command=self.rice).pack(fill=X)
 	
 	def binomial(self):
 		pl.clf()
@@ -210,6 +212,12 @@ class app:
 		x.graph()
 	def rayleigh(self):
 		x=Rayleigh()
+		x.graph()
+	def gamma(self):
+		x=Gamma()
+		x.graph()
+	def rice(self):
+		x=Rice()
 		x.graph()
 		
 root = Tk()
