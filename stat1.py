@@ -193,6 +193,8 @@ class app:
 		rayleigh=Button(top,text="Rayleigh",command=self.rayleigh).pack(fill=X)
 		gamma=Button(top,text="Gamma",command=self.gamma).pack(fill=X)
 		rice=Button(top,text="Rice",command=self.rice).pack(fill=X)
+		beta=Button(top,text="Beta",command=self.beta).pack(fill=X)
+		chisquare=Button(top,text="Chi-Squared",comman=self.chisquared).pack(fill=X)
 	
 	def binomial(self):
 		pl.clf()
@@ -218,6 +220,12 @@ class app:
 		x.graph()
 	def rice(self):
 		x=Rice()
+		x.graph()
+	def beta(self):
+		x=Beta()
+		x.graph()
+	def chisquared(self):
+		x=Chi_Squared()
 		x.graph()
 		
 root = Tk()

@@ -2,6 +2,7 @@ from math import *
 import random
 import matplotlib.pyplot as pl
 from scipy.special import iv
+import numpy as np
 #-------------------------------------------------------------------------------------------#
 class Binomial(): 
 	
@@ -134,11 +135,54 @@ class Rice():
 		self.s=1
 		self.x=[]
 		self.y=[]
-		for i in range(0,50):
+		for i in np.arange(0,10,0.01):
 			self.x.append(i)
 			f=i*exp(-((i**2)+(self.v**2))/(2*self.s**2))*iv(0,(i*self.v)/(self.s**2))/(self.s**2)
 			self.y.append(f)
 	def graph(self):
 		pl.plot(self.x,self.y)
 		pl.show()
+	def rand(self):
+		return self.y
+class Chi_Squared():
+	def __init__(self):
+		self.k=random.randrange(1,10)
+		self.x=[]
+		self.y=[]
+		for i in np.arange(0,20,0.01):
+			self.x.append(i)
+			t1=i**((self.k/2)-1)
+			t2=exp(-i/2)
+			t3=2**(self.k/2)
+			t4=gamma(float(self.k)/2)
 
+			f=(t1*t2)/(t3*t4)
+			self.y.append(f)
+	def graph(self):
+		pl.plot(self.x,self.y)
+		pl.show()
+	def rand(self):
+		return self.y
+	def getK(self):
+		return self.k
+class Beta():
+	def __init__(self):
+		self.a=random.uniform(0.1,4)
+		self.b=random.uniform(0.1,4)
+		self.x=[]
+		self.y=[]
+		for i in np.arange(0,1,0.01):
+			self.x.append(i)
+			t1=gamma(self.a+self.b)
+			t2=gamma(self.a)*gamma(self.b)
+			t3=i**(self.a-1)
+			t4=(1-i)**(self.b-1)
+			f=(t1/t2)*t3*t4
+			self.y.append(f)
+	def graph(self):
+		pl.plot(self.x,self.y)
+		pl.show()
+	def getAlpha(self):
+		return self.a
+	def getBeta(self):
+		return self.b			
